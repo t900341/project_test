@@ -1,0 +1,37 @@
+language: generic
+
+node_js:
+  - 15
+
+sudo: required
+
+
+
+services:
+  - docker
+
+
+script:
+  - docker build -t ftest-frontend ./
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push ftest-frontend
+
+#deploy:
+#  provider: elasticbeanstalks
+#  region: "ap-northeast-2"
+#  app: "docker-fullstack-app"
+#  env: "Dockerfullstackapp-env"
+#  bucket_name: elasticbeanstalk-ap-northeast-2-200476763859
+#  skip_cleanup: true
+#  bucket_path: "docker-fullstack-app"
+#  on:
+#    branch: master
+  
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+
+
+
