@@ -12,11 +12,11 @@ services:
 
 
 script:
-  - docker build -t ftest-frontend ./
+  - docker build -t ftest-frontend1 ./
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push ftest-frontend
+  - docker push ftest-frontend1
 
 #deploy:
 #  provider: elasticbeanstalks
