@@ -12,7 +12,7 @@ services:
 
 
 script:
-  - docker build -t ftest-frontend1 ./
+  - docker build -t ftest-frontend1 ./frontend1
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
